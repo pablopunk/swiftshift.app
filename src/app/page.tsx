@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import site from "~/site";
+import { TbDownload } from "react-icons/tb";
 
 export default function Home() {
   return (
@@ -47,6 +48,13 @@ export default function Home() {
           </Heading>
         );
       })}
+      <a
+        href="/Swift Shift 0.1.0.zip"
+        className="flex gap-2 items-center bg-gradient-to-r from-blue to-pink cursor-pointer mt-4 rounded-md text-neutral-1 text-2xl font-bold py-2 px-4 transition-all hover:to-blue hover:scale-110"
+      >
+        <TbDownload />
+        <span>Download</span>
+      </a>
     </section>
   );
 }
