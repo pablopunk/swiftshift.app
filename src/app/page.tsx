@@ -38,7 +38,7 @@ export default function Home() {
           // @ts-expect-error this hack produces a type error
           <Heading
             key={line}
-            className={classNames({
+            className={classNames("text-center", {
               "text-sm": i !== 0,
               "opacity-70": i !== 0,
             })}
