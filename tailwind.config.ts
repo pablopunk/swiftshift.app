@@ -22,7 +22,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ...cssColors(["neutral", "accent"]),
+        ...cssColors(["neutral"]),
+        pink: "var(--color-pink)",
+        blue: "var(--color-blue)",
       },
     },
   },

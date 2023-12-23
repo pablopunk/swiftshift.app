@@ -1,18 +1,18 @@
-const mainUrl = "pablopunk.com";
+const mainUrl = "swiftshift.app";
 const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
+const siteUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : `https://${vercelUrl || mainUrl}`;
 
 const site = {
-  SITE_URL:
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : `https://${vercelUrl || mainUrl}`,
-  SITE_NAME: "Pablo Varela | Remote Web Developer",
+  SITE_URL: siteUrl,
+  SITE_NAME: "Swift Shift | Manage your mac's windows like a pro",
   SITE_DESC:
-    "Pablo Varela. Remote Web Developer. Check out my work or contact me. You can also find me on popular social networks as @pablopunk.",
-  SITE_IMAGE:
-    "https://ik.imagekit.io/pablopunk/yellow_small.jpg?updatedAt=1698073905261",
+    "Swift Shift is a macOS app that lets you assign shortcuts to move & resize windows. It's the easiest and fastest way to organize your workspace",
+  SITE_IMAGE: `${siteUrl}/images/header-light.png`,
   SITE_COPYRIGHT: "Pablo Varela",
-  SITE_REPO: "https://github.com/pablopunk/pablopunk.com",
+  SITE_REPO: "https://github.com/pablopunk/swiftshift.app",
 };
 
 export default site;

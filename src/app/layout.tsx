@@ -1,13 +1,10 @@
-import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
-import { Toaster } from "react-hot-toast";
 import "~/app/globals.css";
 import { BrowserTitleBarColor } from "~/components/BrowserTitleBarColor";
-import { NavigationEvents } from "~/components/NavigationEvents";
-import { RightClickMenu } from "~/components/RightClickMenu";
 import site from "~/site";
+import classNames from "classnames";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -50,7 +47,7 @@ console.log(\`%c
 Hi! I'm Pablo, the owner of this website.
 What are you doing here? Is there something wrong?
 You can contact me at pablo@pablopunk.com
-Or open an issue/PR at github.com/pablopunk/pablopunk.com
+Or open an issue/PR at ${site.SITE_REPO}
 </>\n
 \`, "color:royalblue");
 `;
@@ -94,34 +91,14 @@ export default function RootLayout({
           content="/favicon/browserconfig.xml"
         />
         <BrowserTitleBarColor />
-        <meta
-          name="google-site-verification"
-          content="y-TnXGhfG_A0b-ttLIV076wjdtFdEMZw6d04iwfR2Xw"
-        />
       </head>
       <body className={inter.className}>
-        <div className="min-h-screen p-6 flex flex-col justify-between">
+        <div className="min-h-screen p-6 flex flex-col justify-center items-center">
           <main>{children}</main>
           <footer className="text-sm text-neutral-5 font-bold pt-6">
             © {site.SITE_COPYRIGHT} {new Date().getFullYear()}
           </footer>
         </div>
-        <Suspense fallback={null}>
-          <RightClickMenu />
-          <Toaster
-            toastOptions={{
-              className: "border-2 border-neutral-2 rounded-md",
-              style: {
-                background: "var(--color-neutral-1)",
-                color: "var(--color-neutral-9)",
-              },
-            }}
-          />
-        </Suspense>
-        <Suspense fallback={null}>
-          <NavigationEvents />
-        </Suspense>
-        <Analytics />
         <script dangerouslySetInnerHTML={{ __html: htmlHello }} async />
       </body>
     </html>
