@@ -15,7 +15,13 @@ export default function Home() {
         className="-mt-8 hidden dark:block"
       />
       <div className="max-w-screen-md -mt-4">
-        <video className="w-full rounded-md" autoPlay loop muted>
+        <video
+          className="w-full rounded-md"
+          autoPlay
+          loop
+          muted
+          poster="/placeholder.png"
+        >
           <source src="/demo.mp4" type="video/mp4" />
         </video>
       </div>
