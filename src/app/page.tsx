@@ -29,6 +29,7 @@ export default function Home() {
       {site.SITE_DESC.split(". ").map((line, i) => {
         const Heading = "h" + (i + 2);
         return (
+          // @ts-expect-error this hack produces a type error
           <Heading
             key={line}
             className={classNames({

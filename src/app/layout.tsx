@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Suspense } from "react";
 import "~/app/globals.css";
 import { BrowserTitleBarColor } from "~/components/BrowserTitleBarColor";
 import site from "~/site";
-import classNames from "classnames";
 
 const inter = Inter({ subsets: ["latin"] });
 
