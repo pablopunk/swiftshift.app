@@ -8,7 +8,7 @@ const nextConfig = {
       },
       {
         source: "/goat",
-        destination: "https://pablopunk.goatcounter.com/count",
+        destination: "https://swiftshift.goatcounter.com/count",
       },
     ];
   },
