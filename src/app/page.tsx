@@ -21,6 +21,7 @@ export default function Home() {
           autoPlay
           loop
           muted
+          playsInline
           poster="/placeholder.png"
         >
           <source src="/demo.mp4" type="video/mp4" />
