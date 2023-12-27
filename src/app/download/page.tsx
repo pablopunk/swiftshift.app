@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { countVisit } from "~/data/goatcounter";
 
-const FILE = "/Swift Shift 0.1.0.zip";
+const FILE = "/Swift Shift.zip";
 
 export default function Download() {
   useEffect(() => {
