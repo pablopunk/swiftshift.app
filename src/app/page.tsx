@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import site from "~/site";
 import { FaAppStore, FaGithub } from "react-icons/fa";
+import { MdDownloading } from "react-icons/md";
 import Link from "next/link";
 
 export default function Home() {
@@ -50,29 +51,35 @@ export default function Home() {
           </Heading>
         );
       })}
-      <div className="flex gap-3">
+      <div className="flex flex-col md:flex-row gap-3">
         {[
           {
-            text: "Soon",
-            href: "#",
-            icon: <FaAppStore />,
-            disabled: true,
+            text: "Download",
+            href: "/download",
+            icon: <MdDownloading />,
           },
           {
             text: "Github",
             href: "https://github.com/pablopunk/SwiftShift",
             icon: <FaGithub />,
           },
+          {
+            text: "Soon",
+            href: "#",
+            icon: <FaAppStore />,
+            disabled: true,
+          },
         ].map(({ text, href, icon, disabled }, index) => (
           <Link
             key={text}
             href={href}
             className={classNames(
-              "flex gap-2 items-center bg-gradient-to-r from-blue to-pink cursor-pointer mt-4 rounded-md text-neutral-1 text-2xl font-bold py-2 px-4 transition-all hover:to-blue hover:scale-110 border-2 border-neutral-300 hover:border-transparent",
+              "flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer mt-4 rounded-md text-neutral-3 text-xl font-bold py-2 px-4 transition-all hover:scale-110 shadow-md",
               {
                 "opacity-50": disabled,
                 "pointer-events-none": disabled,
-                "bg-gradient-to-l": index === 0,
+                "from-pink to-blue hover:to-pink": index % 2 === 0,
+                "from-blue to-pink hover:to-blue": index % 2 !== 0,
               },
             )}
           >
