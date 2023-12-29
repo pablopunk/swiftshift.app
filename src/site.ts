@@ -1,5 +1,5 @@
 const mainUrl = "swiftshift.app";
-const vercelUrl = process.env.VERCEL_URL;
+const vercelUrl = undefined; // process.env.VERCEL_URL;
 const siteUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
