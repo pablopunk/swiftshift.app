@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import site from "~/site";
-import { TbDownload } from "react-icons/tb";
+import { FaAppStore, FaGithub } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
           loop
           muted
           playsInline
-          poster="/placeholder.png"
+          poster="/placeholder.jpg"
         >
           <source src="/demo.mp4" type="video/mp4" />
         </video>
@@ -50,13 +50,37 @@ export default function Home() {
           </Heading>
         );
       })}
-      <Link
-        href="/download"
-        className="flex gap-2 items-center bg-gradient-to-r from-blue to-pink cursor-pointer mt-4 rounded-md text-neutral-1 text-2xl font-bold py-2 px-4 transition-all hover:to-blue hover:scale-110"
-      >
-        <TbDownload />
-        <span>Download</span>
-      </Link>
+      <div className="flex gap-3">
+        {[
+          {
+            text: "Soon",
+            href: "#",
+            icon: <FaAppStore />,
+            disabled: true,
+          },
+          {
+            text: "Github",
+            href: "https://github.com/pablopunk/SwiftShift",
+            icon: <FaGithub />,
+          },
+        ].map(({ text, href, icon, disabled }, index) => (
+          <Link
+            key={text}
+            href={href}
+            className={classNames(
+              "flex gap-2 items-center bg-gradient-to-r from-blue to-pink cursor-pointer mt-4 rounded-md text-neutral-1 text-2xl font-bold py-2 px-4 transition-all hover:to-blue hover:scale-110 border-2 border-neutral-300 hover:border-transparent",
+              {
+                "opacity-50": disabled,
+                "pointer-events-none": disabled,
+                "bg-gradient-to-l": index === 0,
+              },
+            )}
+          >
+            {icon}
+            <span>{text}</span>
+          </Link>
+        ))}
+      </div>
     </section>
   );
 }
