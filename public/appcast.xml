@@ -3,20 +3,12 @@
     <channel>
         <title>Swift Shift</title>
         <item>
-            <title>0.11.0</title>
-            <pubDate>Tue, 02 Jan 2024 19:06:10 +0100</pubDate>
-            <sparkle:version>2</sparkle:version>
-            <sparkle:shortVersionString>0.11.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://swiftshift.app/Swift%20Shift.dmg" length="2227787" type="application/octet-stream" sparkle:edSignature="iUvPfUwlrFWpf8aULxoXWrLZg1K+D/e4XJ8PH4BFatBJOq16/vo2sNCMRgfIxZg/AbREisp3cu/pxR4H1qqSCw=="/>
-        </item>
-        <item>
             <title>0.12.0</title>
-            <pubDate>Wed, 03 Jan 2024 01:00:46 +0100</pubDate>
+            <pubDate>Wed, 03 Jan 2024 01:14:17 +0100</pubDate>
             <sparkle:version>1</sparkle:version>
             <sparkle:shortVersionString>0.12.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://swiftshift.app/Swift%20Shift.dmg" length="2228719" type="application/octet-stream" sparkle:edSignature="/bElN2Rw521dHmjjie8jeg8xzyis8h7OIkug7ayEI55B5lvdy9JK9LfC6D1nnNXt3ze7mMTmT+Po08AXgIbvAA=="/>
+            <enclosure url="https://swiftshift.app/Swift%20Shift.zip" length="2351828" type="application/octet-stream" sparkle:edSignature="q3axCuxFEsoDLGWrvsleZO3XRq7uX4cmxf2AeZg6NOgfBOiUCFHourf+cS4qRq6wUaCsJRTQO8LwYtkoUH5+AA=="/>
         </item>
     </channel>
 </rss>
