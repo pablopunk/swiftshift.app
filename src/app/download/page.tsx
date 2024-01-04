@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { countVisit } from "~/data/goatcounter";
 
 const FILE =
-  "https://github.com/pablopunk/SwiftShift/releases/latest/download/Swift.Shift.zip";
+  "https://github.com/pablopunk/SwiftShift/releases/latest/download/SwiftShift.zip";
 
 export default function Download() {
   useEffect(() => {
