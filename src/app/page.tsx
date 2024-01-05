@@ -55,7 +55,7 @@ export default function Home() {
         {[
           {
             text: "Download",
-            href: "/download",
+            href: "https://github.com/pablopunk/SwiftShift/releases/latest/download/SwiftShift.zip",
             icon: <MdDownloading />,
           },
           {
