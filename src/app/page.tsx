@@ -97,6 +97,9 @@ export default function Home() {
           );
         })}
       </div>
+      <div className="text-sm mt-8 md:mt-4 bg-teal-700 text-neutral-9 px-2 rounded-full">
+        $ Pay what you want
+      </div>
     </section>
   );
 }
