@@ -54,8 +54,8 @@ export default function Home() {
       <div className="flex flex-col md:flex-row gap-3">
         {[
           {
-            text: "Download",
-            href: "https://github.com/pablopunk/SwiftShift/releases/latest/download/SwiftShift.zip",
+            text: "Buy",
+            href: "https://pablopunk.gumroad.com/l/swiftshift",
             icon: <MdDownloading />,
           },
           {
