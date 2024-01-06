@@ -12,6 +12,16 @@ const nextConfig = {
       },
     ];
   },
+
+  async redirects() {
+    return [
+      {
+        source: "/buy",
+        destination: "https://pablopunk.gumroad.com/l/swiftshift",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

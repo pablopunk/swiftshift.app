@@ -1,7 +1,10 @@
+"use client";
+
 import classNames from "classnames";
 import site from "~/site";
 import { FaAppStore, FaGithub } from "react-icons/fa";
 import { MdDownloading } from "react-icons/md";
+import { countVisit } from "~/data/goatcounter";
 import Link from "next/link";
 
 export default function Home() {
@@ -55,7 +58,10 @@ export default function Home() {
         {[
           {
             text: "Buy",
-            href: "https://pablopunk.gumroad.com/l/swiftshift",
+            onClick: () => {
+              countVisit("/buy");
+              window.location.href = "/buy";
+            },
             icon: <MdDownloading />,
           },
           {
@@ -69,24 +75,28 @@ export default function Home() {
             icon: <FaAppStore />,
             disabled: true,
           },
-        ].map(({ text, href, icon, disabled }, index) => (
-          <Link
-            key={text}
-            href={href}
-            className={classNames(
-              "flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer mt-4 rounded-md text-neutral-3 text-xl font-bold py-2 px-4 transition-all hover:scale-110 shadow-md",
-              {
-                "opacity-50": disabled,
-                "pointer-events-none": disabled,
-                "from-pink to-blue hover:to-pink": index % 2 === 0,
-                "from-blue to-pink hover:to-blue": index % 2 !== 0,
-              },
-            )}
-          >
-            {icon}
-            <span>{text}</span>
-          </Link>
-        ))}
+        ].map(({ text, href, onClick, icon, disabled }, index) => {
+          const LinkOrButton = href ? "a" : "button";
+          return (
+            <LinkOrButton
+              key={text}
+              href={href || undefined}
+              onClick={onClick || undefined}
+              className={classNames(
+                "flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer mt-4 rounded-md text-neutral-3 text-xl font-bold py-2 px-4 transition-all hover:scale-110 shadow-md",
+                {
+                  "opacity-50": disabled,
+                  "pointer-events-none": disabled,
+                  "from-pink to-blue hover:to-pink": index % 2 === 0,
+                  "from-blue to-pink hover:to-blue": index % 2 !== 0,
+                },
+              )}
+            >
+              {icon}
+              <span>{text}</span>
+            </LinkOrButton>
+          );
+        })}
       </div>
     </section>
   );
