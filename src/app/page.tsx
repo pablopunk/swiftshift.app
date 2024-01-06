@@ -5,7 +5,6 @@ import site from "~/site";
 import { FaAppStore, FaGithub } from "react-icons/fa";
 import { MdDownloading } from "react-icons/md";
 import { countVisit } from "~/data/goatcounter";
-import Link from "next/link";
 
 export default function Home() {
   return (
