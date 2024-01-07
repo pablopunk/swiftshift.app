@@ -20,6 +20,11 @@ const nextConfig = {
         destination: "https://pablopunk.gumroad.com/l/swiftshift",
         permanent: false,
       },
+      {
+        source: "/download",
+        destination: "https://pablopunk.gumroad.com/l/swiftshift",
+        permanent: false,
+      },
     ];
   },
 };
