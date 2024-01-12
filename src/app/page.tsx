@@ -2,7 +2,7 @@
 
 import classNames from "classnames";
 import site from "~/site";
-import { FaAppStore, FaGithub } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { MdDownloading } from "react-icons/md";
 import { countVisit } from "~/data/goatcounter";
 
@@ -68,12 +68,6 @@ export default function Home() {
             href: "https://github.com/pablopunk/SwiftShift",
             icon: <FaGithub />,
           },
-          {
-            text: "Soon",
-            href: "#",
-            icon: <FaAppStore />,
-            disabled: true,
-          },
         ].map(({ text, href, onClick, icon, disabled }, index) => {
           const LinkOrButton = href ? "a" : "button";
           return (
@@ -82,12 +76,14 @@ export default function Home() {
               href={href || undefined}
               onClick={onClick || undefined}
               className={classNames(
-                "flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer mt-4 rounded-md text-neutral-3 text-xl font-bold py-2 px-4 transition-all hover:scale-110 shadow-md",
+                "flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer mt-4 rounded-md text-xl font-bold py-2 px-4 transition-all hover:scale-110 shadow-md",
                 {
                   "opacity-50": disabled,
                   "pointer-events-none": disabled,
-                  "from-pink to-blue hover:to-pink": index % 2 === 0,
-                  "from-blue to-pink hover:to-blue": index % 2 !== 0,
+                  "text-neutral-3 bg-gradient-to-r from-pink to-blue hover:to-pink":
+                    index % 2 === 0,
+                  "border border-neutral-7 text-neutral-8 hover:text-pink hover:border-pink":
+                    index % 2 !== 0,
                 },
               )}
             >
@@ -97,7 +93,7 @@ export default function Home() {
           );
         })}
       </div>
-      <div className="text-sm mt-8 md:mt-4 bg-teal-700 text-neutral-9 px-2 rounded-full">
+      <div className="text-sm mt-8 md:mt-4 bg-teal-500 dark:bg-teal-700 text-neutral-3 dark:text-neutral-8 px-2 rounded-full">
         $ Pay what you want
       </div>
     </section>
