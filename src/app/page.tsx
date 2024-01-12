@@ -82,7 +82,7 @@ export default function Home() {
                   "pointer-events-none": disabled,
                   "text-neutral-3 bg-gradient-to-r from-pink to-blue hover:to-pink":
                     index % 2 === 0,
-                  "border border-neutral-7 text-neutral-8 hover:text-pink hover:border-pink":
+                  "border dark:border-neutral-7 dark:bg-gradient-to-l dark:from-neutral-1 dark:to-neutral-3 text-neutral-8 hover:text-blue hover:border-blue hover:to-neutral-5":
                     index % 2 !== 0,
                 },
               )}
