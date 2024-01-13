@@ -68,7 +68,7 @@ export default function Home() {
             href: "https://github.com/pablopunk/SwiftShift",
             icon: <FaGithub />,
           },
-        ].map(({ text, href, onClick, icon, disabled }, index) => {
+        ].map(({ text, href, onClick, icon }, index) => {
           const LinkOrButton = href ? "a" : "button";
           return (
             <LinkOrButton
@@ -78,8 +78,8 @@ export default function Home() {
               className={classNames(
                 "flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer mt-4 rounded-md text-xl font-bold py-2 px-4 transition-all hover:scale-110 shadow-md",
                 {
-                  "opacity-50": disabled,
-                  "pointer-events-none": disabled,
+                  // "opacity-50": disabled,
+                  // "pointer-events-none": disabled,
                   "text-neutral-3 bg-gradient-to-r from-pink to-blue hover:to-pink":
                     index % 2 === 0,
                   "border dark:border-neutral-7 dark:bg-gradient-to-l dark:from-neutral-1 dark:to-neutral-3 text-neutral-8 hover:text-blue hover:border-blue hover:to-neutral-5":
