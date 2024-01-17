@@ -5,6 +5,7 @@ type WindowWithGoatcounter = Window & {
 };
 
 export const countVisit = (url: string) => {
+  console.log("countVisit", url);
   (window as WindowWithGoatcounter).goatcounter?.count({
     path: url,
   });

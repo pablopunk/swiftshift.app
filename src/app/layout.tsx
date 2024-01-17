@@ -89,6 +89,7 @@ export default function RootLayout({
           content="/favicon/browserconfig.xml"
         />
         <BrowserTitleBarColor />
+        <script src="https://app.lemonsqueezy.com/js/lemon.js" defer />
       </head>
       <body className={inter.className}>
         <div className="min-h-screen p-6 flex flex-col justify-center items-center">

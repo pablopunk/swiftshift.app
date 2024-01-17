@@ -17,12 +17,14 @@ const nextConfig = {
     return [
       {
         source: "/buy",
-        destination: "https://pablopunk.gumroad.com/l/swiftshift",
+        destination:
+          "https://pablopunk.lemonsqueezy.com/checkout/buy/3f0a94d5-c49d-4d40-b847-dae2388f60f4",
         permanent: false,
       },
       {
         source: "/download",
-        destination: "https://pablopunk.gumroad.com/l/swiftshift",
+        destination:
+          "https://pablopunk.lemonsqueezy.com/checkout/buy/3f0a94d5-c49d-4d40-b847-dae2388f60f4",
         permanent: false,
       },
     ];

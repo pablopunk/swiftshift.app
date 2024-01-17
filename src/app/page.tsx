@@ -57,18 +57,17 @@ export default function Home() {
         {[
           {
             text: "Buy",
-            onClick: () => {
-              countVisit("/buy");
-              window.location.href = "/buy";
-            },
             icon: <MdDownloading />,
+            className: "lemonsqueezy-button",
+            href: "https://pablopunk.lemonsqueezy.com/checkout/buy/3f0a94d5-c49d-4d40-b847-dae2388f60f4",
+            onClick: () => countVisit("/buy"),
           },
           {
             text: "Github",
             href: "https://github.com/pablopunk/SwiftShift",
             icon: <FaGithub />,
           },
-        ].map(({ text, href, onClick, icon }, index) => {
+        ].map(({ text, href, className, onClick, icon }, index) => {
           const LinkOrButton = href ? "a" : "button";
           return (
             <LinkOrButton
@@ -76,7 +75,8 @@ export default function Home() {
               href={href || undefined}
               onClick={onClick || undefined}
               className={classNames(
-                "flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer mt-4 rounded-md text-xl font-bold py-2 px-4 transition-all hover:scale-110 shadow-md",
+                className,
+                "flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer mt-4 rounded-md text-xl font-bold py-2 px-4 transition-all hover:scale-105 shadow-md",
                 {
                   // "opacity-50": disabled,
                   // "pointer-events-none": disabled,
