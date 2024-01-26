@@ -31,11 +31,14 @@ export default function Home() {
           <source src="/demo.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="text-3xl font-bold max-w-md text-center">
-        <div className="p-4">
-          <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-blue to-pink">
+      <div className="mt-3">
+        <h1 className="text-xl text-neutral-400 font-bold">⌘ Swift Shift ⌥</h1>
+      </div>
+      <div className="text-3xl font-bold max-w-screen-lg text-center">
+        <div className="mt-2 mb-3">
+          <h2 className="bg-clip-text text-transparent bg-gradient-to-r from-blue to-pink">
             Manage your macOS windows like a pro
-          </h1>
+          </h2>
         </div>
       </div>
       {site.SITE_DESC.split(". ").map((line, i) => {
