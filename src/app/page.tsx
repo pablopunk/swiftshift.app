@@ -1,6 +1,5 @@
 "use client";
 
-import classNames from "classnames";
 import site from "~/site";
 import { FaGithub } from "react-icons/fa";
 import { MdDownloading } from "react-icons/md";
@@ -8,20 +7,21 @@ import { countVisit } from "~/data/goatcounter";
 
 export default function Home() {
   return (
-    <section className="w-full flex flex-col items-center">
-      <img
-        src="/header-light.png"
-        width="400px"
-        className="-mt-8 dark:hidden"
-      />
-      <img
-        src="/header-dark.png"
-        width="400px"
-        className="-mt-8 hidden dark:block"
-      />
-      <div className="max-w-screen-md -mt-4">
+    <section className="max-w-screen-lg mx-auto flex flex-col">
+      <div className="flex items-center justify-center">
+        {["light", "dark"].map((theme) => (
+          <img
+            key={theme}
+            src={`/header-${theme}.png`}
+            alt="Header"
+            width="400px"
+            className={theme === "light" ? "dark:hidden" : "hidden dark:block"}
+          />
+        ))}
+      </div>
+      <div className="-mt-10 md:mt-0 flex flex-col md:flex-row gap-6 items-center border-b border-neutral-3 md:border-none py-12">
         <video
-          className="w-full rounded-md"
+          className="w-full rounded-md max-w-sm md:max-w-lg"
           autoPlay
           loop
           muted
@@ -30,74 +30,88 @@ export default function Home() {
         >
           <source src="/demo.mp4" type="video/mp4" />
         </video>
-      </div>
-      <div className="mt-3">
-        <h1 className="text-xl text-neutral-400 font-bold">⌘ Swift Shift ⌥</h1>
-      </div>
-      <div className="text-3xl font-bold max-w-screen-lg text-center">
-        <div className="mt-2 mb-3">
-          <h2 className="bg-clip-text text-transparent bg-gradient-to-r from-blue to-pink">
+        <div className="flex flex-col gap-4 items-center justify-between md:items-start">
+          <h1 className="text-4xl font-bold">Swift Shift</h1>
+          <h2 className="text-2xl text-center font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue to-pink">
             Manage your macOS windows like a pro
           </h2>
+          <p className="text-lg text-center md:text-left">{site.SITE_DESC}</p>
+          <div className="flex flex-col md:flex-row gap-3">
+            <a
+              href="https://pablopunk.lemonsqueezy.com/checkout/buy/3f0a94d5-c49d-4d40-b847-dae2388f60f4"
+              onClick={() => countVisit("/buy")}
+              className="flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer rounded-md text-lg font-bold py-2 px-4 transition-all hover:scale-105 shadow-md text-neutral-3 from-pink to-blue hover:to-pink lemonsqueezy-button"
+            >
+              <MdDownloading />
+              <span>Pay what you want</span>
+            </a>
+            <a
+              href="https://github.com/pablopunk/SwiftShift"
+              className="flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer rounded-md text-lg font-bold py-2 px-4 transition-all hover:scale-105 shadow-md border dark:border-neutral-7 dark:bg-gradient-to-l dark:from-neutral-1 dark:to-neutral-3 text-neutral-8 hover:text-blue hover:border-blue hover:to-neutral-5"
+            >
+              <FaGithub />
+              <span>Download for free</span>
+            </a>
+          </div>
         </div>
       </div>
-      {site.SITE_DESC.split(". ").map((line, i) => {
-        const Heading = "h" + (i + 2);
-        return (
-          // @ts-expect-error this hack produces a type error
-          <Heading
-            key={line}
-            className={classNames("text-center", {
-              "text-sm": i !== 0,
-              "opacity-70": i !== 0,
-            })}
-          >
-            {line}.
-          </Heading>
-        );
-      })}
-      <div className="flex flex-col md:flex-row gap-3">
-        {[
-          {
-            text: "Buy",
-            icon: <MdDownloading />,
-            className: "lemonsqueezy-button",
-            href: "https://pablopunk.lemonsqueezy.com/checkout/buy/3f0a94d5-c49d-4d40-b847-dae2388f60f4",
-            onClick: () => countVisit("/buy"),
-          },
-          {
-            text: "Github",
-            href: "https://github.com/pablopunk/SwiftShift",
-            icon: <FaGithub />,
-          },
-        ].map(({ text, href, className, onClick, icon }, index) => {
-          const LinkOrButton = href ? "a" : "button";
-          return (
-            <LinkOrButton
-              key={text}
-              href={href || undefined}
-              onClick={onClick || undefined}
-              className={classNames(
-                className,
-                "flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer mt-4 rounded-md text-xl font-bold py-2 px-4 transition-all hover:scale-105 shadow-md",
-                {
-                  // "opacity-50": disabled,
-                  // "pointer-events-none": disabled,
-                  "text-neutral-3 bg-gradient-to-r from-pink to-blue hover:to-pink":
-                    index % 2 === 0,
-                  "border dark:border-neutral-7 dark:bg-gradient-to-l dark:from-neutral-1 dark:to-neutral-3 text-neutral-8 hover:text-blue hover:border-blue hover:to-neutral-5":
-                    index % 2 !== 0,
-                },
-              )}
-            >
-              {icon}
-              <span>{text}</span>
-            </LinkOrButton>
-          );
-        })}
+      <div className="flex flex-col md:flex-row gap-6 items-center justify-between border-b border-neutral-3 md:border-none py-12">
+        <div className="flex flex-col gap-4 items-center">
+          <h3 className="text-2xl font-bold">Launch once and forget.</h3>
+          <p className="text-lg text-center max-w-sm">
+            Swift Shift runs in the background, setup your shortcuts and go on
+            with your day.
+          </p>
+          {["Want to launch at login?", "Want to hide the menubar icon?"].map(
+            (question) => (
+              <p
+                key={question}
+                className="text-md text-center max-w-sm flex gap-1 font-bold"
+              >
+                {question}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue to-pink">
+                  No problem
+                </span>
+              </p>
+            ),
+          )}
+        </div>
+        {["light", "dark"].map((theme) => (
+          <img
+            key={theme}
+            src={`/screenshot-${theme}.jpg`}
+            alt="Screenshot"
+            className={`max-w-xs md:max-w-lg rounded-md ${
+              theme === "light" ? "dark:hidden" : "hidden dark:block"
+            }`}
+          />
+        ))}
       </div>
-      <div className="text-sm mt-8 md:mt-4 bg-teal-500 dark:bg-teal-700 text-neutral-3 dark:text-neutral-8 px-2 rounded-full">
-        $ Pay what you want
+      <div className="flex flex-col-reverse md:flex-row gap-6 items-center justify-between py-12">
+        <div className="text-5xl font-bold flex flex-col items-center justify-center rounded-md bg-clip-text text-transparent bg-gradient-to-t from-blue to-pink w-full max-w-lg md:w-[512px] h-44 md:h-[307px] border border-dashed border-blue">
+          <p>🩵</p>
+          <p>Open</p>
+          <p>Source</p>
+        </div>
+        <div className="flex flex-col gap-4 items-center">
+          <h3 className="text-2xl font-bold">Free as in freedom.</h3>
+          <p className="text-lg text-center max-w-lg">
+            I made this project cause it's something I always wanted to have.
+            <b> I had no idea about Swift and macOS APIs</b>, I learned most of
+            it using ChatGPT and looking at other open source projects.
+          </p>
+          <p className="text-lg text-center max-w-lg text-blue dark:text-pink">
+            Feel free to checkout the <b>code</b>, open an <b>issue</b>, or
+            contribute with a <b>PR</b>.
+          </p>
+          <a
+            href="https://github.com/pablopunk/SwiftShift"
+            className="flex gap-2 items-center justify-center bg-gradient-to-r cursor-pointer rounded-md text-lg font-bold py-2 px-4 transition-all hover:scale-105 shadow-md text-neutral-3 from-pink to-blue hover:to-pink"
+          >
+            <FaGithub />
+            <span>Open Github</span>
+          </a>
+        </div>
       </div>
     </section>
   );

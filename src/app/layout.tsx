@@ -93,11 +93,16 @@ export default function RootLayout({
         <script src="https://app.lemonsqueezy.com/js/lemon.js" defer />
       </head>
       <body className={inter.className}>
-        <div className="min-h-screen p-6 flex flex-col justify-center items-center">
+        <nav className="flex justify-end items-center px-4 py-2">
+          <a
+            href="https://pablopunk.com"
+            className="font-bold text-sm text-neutral-8 hover:text-blue transition-colors"
+          >
+            made by @pablopunk
+          </a>
+        </nav>
+        <div className="p-3 max-w-screen-xl mx-auto">
           <main>{children}</main>
-          <footer className="text-sm text-neutral-5 font-bold pt-6">
-            © {site.SITE_COPYRIGHT} {new Date().getFullYear()}
-          </footer>
         </div>
         <script dangerouslySetInnerHTML={{ __html: htmlHello }} async />
       </body>
