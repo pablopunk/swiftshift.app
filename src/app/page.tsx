@@ -96,7 +96,7 @@ export default function Home() {
         <div className="flex flex-col gap-4 items-center">
           <h3 className="text-2xl font-bold">Free as in freedom.</h3>
           <p className="text-lg text-center max-w-lg">
-            I made this project cause it's something I always wanted to have.
+            I made this project cause it{"'"}s something I always wanted to have.
             <b> I had no idea about Swift and macOS APIs</b>, I learned most of
             it using ChatGPT and looking at other open source projects.
           </p>
