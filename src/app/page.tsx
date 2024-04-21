@@ -4,6 +4,7 @@ import site from "~/site";
 import { FaGithub } from "react-icons/fa";
 import { MdDownloading } from "react-icons/md";
 import { countVisit } from "~/data/goatcounter";
+import classNames from "classnames";
 
 export default function Home() {
   return (
@@ -19,24 +20,33 @@ export default function Home() {
           />
         ))}
       </div>
-      <div className="-mt-10 md:mt-0 flex flex-col md:flex-row gap-6 items-center border-b border-neutral-3 md:border-none py-12">
-        <video
-          className="w-full rounded-md max-w-sm md:max-w-lg"
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/placeholder.jpg"
-        >
-          <source src="/demo.mp4" type="video/mp4" />
-        </video>
-        <div className="flex flex-col gap-4 items-center justify-between md:items-start">
+      <div className="-mt-10 lg:mt-0 flex flex-col lg:flex-row gap-6 items-center border-b border-neutral-3 lg:border-none py-12">
+        {["light", "dark"].map((theme) => (
+          <video
+            key={theme}
+            className={classNames(
+              "w-full rounded-md max-w-sm lg:max-w-lg",
+              theme === "light" ? "dark:hidden" : "hidden dark:block",
+            )}
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/placeholder.jpg"
+          >
+            <source src={`/demo-${theme}.mp4`} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ))}
+        <div className="flex flex-col gap-4 items-center justify-between lg:items-start">
           <h1 className="text-4xl font-bold">Swift Shift</h1>
           <h2 className="text-2xl text-center font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue to-pink">
             Manage your macOS windows like a pro
           </h2>
-          <p className="text-lg text-center md:text-left">{site.SITE_DESC}</p>
-          <div className="flex flex-col md:flex-row gap-3">
+          <p className="text-lg max-w-lg text-center lg:text-left">
+            {site.SITE_DESC}
+          </p>
+          <div className="flex flex-col lg:flex-row gap-3">
             <a
               href="https://pablopunk.lemonsqueezy.com/checkout/buy/3f0a94d5-c49d-4d40-b847-dae2388f60f4"
               onClick={() => countVisit("/buy")}
@@ -55,7 +65,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row gap-6 items-center justify-between border-b border-neutral-3 md:border-none py-12">
+      <div className="flex flex-col lg:flex-row gap-6 items-center justify-between border-b border-neutral-3 lg:border-none py-12">
         <div className="flex flex-col gap-4 items-center">
           <h3 className="text-2xl font-bold">Launch once and forget.</h3>
           <p className="text-lg text-center max-w-sm">
@@ -81,14 +91,14 @@ export default function Home() {
             key={theme}
             src={`/screenshot-${theme}.jpg`}
             alt="Screenshot"
-            className={`max-w-xs md:max-w-lg rounded-md ${
+            className={`max-w-xs lg:max-w-lg rounded-md ${
               theme === "light" ? "dark:hidden" : "hidden dark:block"
             }`}
           />
         ))}
       </div>
-      <div className="flex flex-col-reverse md:flex-row gap-6 items-center justify-between py-12">
-        <div className="text-5xl font-bold flex flex-col items-center justify-center rounded-md bg-clip-text text-transparent bg-gradient-to-t from-blue to-pink w-full max-w-lg md:w-[512px] h-44 md:h-[307px] border border-dashed border-blue">
+      <div className="flex flex-col-reverse lg:flex-row gap-6 items-center justify-between py-12">
+        <div className="text-5xl font-bold flex flex-col items-center justify-center rounded-md bg-clip-text text-transparent bg-gradient-to-t from-blue to-pink w-full max-w-lg lg:w-[512px] h-44 lg:h-[307px] border border-dashed border-blue">
           <p>🩵</p>
           <p>Open</p>
           <p>Source</p>
@@ -96,7 +106,8 @@ export default function Home() {
         <div className="flex flex-col gap-4 items-center">
           <h3 className="text-2xl font-bold">Free as in freedom.</h3>
           <p className="text-lg text-center max-w-lg">
-            I made this project cause it{"'"}s something I always wanted to have.
+            I made this project cause it{"'"}s something I always wanted to
+            have.
             <b> I had no idea about Swift and macOS APIs</b>, I learned most of
             it using ChatGPT and looking at other open source projects.
           </p>
