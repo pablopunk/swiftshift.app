@@ -107,7 +107,7 @@ import site from "site"
 			</div>
 		</div>
 		<div
-			class="bg-dots flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none"
+			class="bg-dots alt flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none"
 		>
 			<div class="flex flex-col items-center gap-4">
 				<h3 class="text-2xl font-bold">Launch once and forget.</h3>
@@ -199,5 +199,8 @@ import site from "site"
 		-webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%);
 		mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%);
 		background-size: 24px 24px;
+	}
+	.bg-dots.alt::before {
+		background-image: radial-gradient(var(--accent2-5) 1px, transparent 1px);
 	}
 </style>
