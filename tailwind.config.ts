@@ -19,8 +19,8 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				accent: getColorScale("teal"),
-				accent2: getColorScale("iris"),
+				accent: getColorScale("blue"),
+				accent2: getColorScale("pink"),
 				neutral: getColorScale("slate"),
 			},
 			fontFamily: {

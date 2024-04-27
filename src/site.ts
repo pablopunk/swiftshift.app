@@ -1,4 +1,4 @@
-export const mainUrl = "swiftshift.app"
+export const mainUrl = "https://swiftshift.app"
 
 type NodeEnv = "development" | "production"
 interface ProcessEnv {
@@ -18,12 +18,38 @@ const url =
 
 const site = {
 	SITE_URL: url,
-	SITE_NAME: "Swift Shift | Sweet window management for macOS",
+	SITE_NAME: "Swift Shift | Manage your mac's windows like a pro",
 	SITE_DESC:
-		"Pablo Varela. Remote Developer. Check out my work or contact me. You can also find me on popular social networks as @pablopunk.",
-	SITE_IMAGE: "https://ik.imagekit.io/pablopunk/yellow_small.jpg?updatedAt=1698073905261",
+		"Swift Shift is a macOS app that lets you assign shortcuts to move & resize windows. It's the easiest and fastest way to organize your workspace.",
+	SITE_IMAGE: `${url}/header-light-extended.png`,
 	SITE_COPYRIGHT: "Pablo Varela",
-	SITE_REPO: "https://github.com/pablopunk/pablopunk.com",
+	SITE_REPO: "https://github.com/pablopunk/swiftshift.app",
+	SITE_KEYWORDS: [
+		"mac",
+		"os",
+		"app",
+		"macosapp",
+		"window",
+		"manager",
+		"swift",
+		"shift",
+		"shortcut",
+		"move",
+		"resize",
+		"keyboard",
+		"productivity",
+		"workspace",
+		"organize",
+		"efficient",
+		"fast",
+		"easy",
+		"free",
+		"open",
+		"source",
+		"pablopunk",
+		"pablovarela",
+		"swiftshift",
+	],
 }
 
 export default site
