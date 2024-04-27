@@ -62,7 +62,7 @@ import site from "site"
 								button.addEventListener("click", () => {
 									;(window as any).goatcounter?.count({
 										path: "/buy",
-									})
+									}) || console.log("goatcounter not found")
 								})
 							})
 						</script>
