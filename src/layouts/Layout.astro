@@ -14,6 +14,8 @@ const title: string = site.SITE_NAME
 const description = site.SITE_DESC
 const image = site.SITE_IMAGE
 const url = site.SITE_URL
+const env = process.env.NODE_ENV
+const isProd = env === "production"
 ---
 
 <!doctype html>
@@ -61,7 +63,7 @@ const url = site.SITE_URL
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script data-goatcounter="/goat" async src="/count.js" is:inline></script>
+		{isProd ? <script data-goatcounter="/goat" async src="/count.js" is:inline /> : null}
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#000000" />
 		<script src="https://app.lemonsqueezy.com/js/lemon.js" defer is:inline></script>
