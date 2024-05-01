@@ -1,11 +1,11 @@
 ---
+import HeaderDark from "@/images/header-dark.png"
+import HeaderLight from "@/images/header-light.png"
+import ScreenshotDark from "@/images/screenshot-dark.jpg"
+import ScreenshotLight from "@/images/screenshot-light.jpg"
+import Layout from "@/layouts/Layout.astro"
+import site from "@/site"
 import { Image } from "astro:assets"
-import HeaderDark from "images/header-dark.png"
-import HeaderLight from "images/header-light.png"
-import ScreenshotDark from "images/screenshot-dark.jpg"
-import ScreenshotLight from "images/screenshot-light.jpg"
-import Layout from "layouts/Layout.astro"
-import site from "site"
 ---
 
 <Layout>
@@ -17,7 +17,7 @@ import site from "site"
 						src={theme === "light" ? HeaderLight : HeaderDark}
 						alt="Header"
 						width={400}
-						class={theme === "light" ? "dark:hidden" : "hidden dark:block"}
+						class:list={theme === "light" ? "dark:hidden" : "hidden dark:block"}
 						loading="eager"
 					/>
 				))
@@ -63,6 +63,7 @@ import site from "site"
 								button.addEventListener("click", () => {
 									;(window as any).goatcounter?.count({
 										path: "/buy",
+										// eslint-disable-next-line no-console
 									}) || console.log("goatcounter not found")
 								})
 							})
@@ -131,7 +132,7 @@ import site from "site"
 					<Image
 						src={theme === "light" ? ScreenshotLight : ScreenshotDark}
 						alt="Screenshot"
-						class={`max-w-xs rounded-md lg:max-w-lg ${
+						class:list={`max-w-xs rounded-md lg:max-w-lg ${
 							theme === "light" ? "dark:hidden" : "hidden dark:block"
 						}`}
 						loading="eager"

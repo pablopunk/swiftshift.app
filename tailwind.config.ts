@@ -1,6 +1,6 @@
+import fs from "node:fs"
 import type { Config } from "tailwindcss"
 import defaultTheme from "tailwindcss/defaultTheme"
-import fs from "fs"
 
 const layout = fs.readFileSync("./src/layouts/Layout.astro", "utf8")
 const accent1 = layout.match(/--accent-1: var\(--(.+?)-1\);/)?.[1]
