@@ -1,11 +1,11 @@
 ---
+import HeaderDark from "@/images/header-dark.png"
+import HeaderLight from "@/images/header-light.png"
+import ScreenshotDark from "@/images/screenshot-dark.jpg"
+import ScreenshotLight from "@/images/screenshot-light.jpg"
+import Layout from "@/layouts/Layout.astro"
+import site from "@/site"
 import { Image } from "astro:assets"
-import HeaderDark from "images/header-dark.png"
-import HeaderLight from "images/header-light.png"
-import ScreenshotDark from "images/screenshot-dark.jpg"
-import ScreenshotLight from "images/screenshot-light.jpg"
-import Layout from "layouts/Layout.astro"
-import site from "site"
 ---
 
 <Layout>
@@ -17,7 +17,7 @@ import site from "site"
 						src={theme === "light" ? HeaderLight : HeaderDark}
 						alt="Header"
 						width={400}
-						class={theme === "light" ? "dark:hidden" : "hidden dark:block"}
+						class:list={theme === "light" ? "dark:hidden" : "hidden dark:block"}
 						loading="eager"
 					/>
 				))
@@ -30,7 +30,7 @@ import site from "site"
 				["light", "dark"].map((theme) => (
 					<video
 						class:list={[
-							"w-full max-w-sm rounded-md lg:max-w-lg",
+							"w-full max-w-sm rounded-md transition-all lg:max-w-lg",
 							theme === "light" ? "dark:hidden" : "hidden dark:block",
 						]}
 						autoplay
@@ -38,6 +38,7 @@ import site from "site"
 						muted
 						playsinline
 						poster="/placeholder.jpg"
+						preload="metadata"
 						src={`/demo-${theme}.mp4`}
 					/>
 				))
@@ -62,7 +63,8 @@ import site from "site"
 								button.addEventListener("click", () => {
 									;(window as any).goatcounter?.count({
 										path: "/buy",
-									})
+										// eslint-disable-next-line no-console
+									}) || console.log("goatcounter not found")
 								})
 							})
 						</script>
@@ -107,7 +109,7 @@ import site from "site"
 			</div>
 		</div>
 		<div
-			class="bg-dots flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none"
+			class="bg-dots alt flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none"
 		>
 			<div class="flex flex-col items-center gap-4">
 				<h3 class="text-2xl font-bold">Launch once and forget.</h3>
@@ -130,7 +132,7 @@ import site from "site"
 					<Image
 						src={theme === "light" ? ScreenshotLight : ScreenshotDark}
 						alt="Screenshot"
-						class={`max-w-xs rounded-md lg:max-w-lg ${
+						class:list={`max-w-xs rounded-md lg:max-w-lg ${
 							theme === "light" ? "dark:hidden" : "hidden dark:block"
 						}`}
 						loading="eager"
@@ -140,20 +142,24 @@ import site from "site"
 		</div>
 		<div class="bg-dots flex flex-col-reverse items-center justify-between gap-6 py-12 lg:flex-row">
 			<div
-				class="flex h-44 w-full max-w-lg flex-col items-center justify-center rounded-md border border-dashed border-accent-6 bg-gradient-to-t from-accent-11 to-accent2-11 bg-clip-text text-5xl font-bold text-transparent lg:h-[307px] lg:w-[512px]"
+				class="blob relative z-10 flex h-[300px] w-full max-w-lg flex-col items-center justify-center rounded-md bg-accent-1 transition-all lg:w-1/2"
 			>
-				<p>🩵</p>
-				<p>Open</p>
-				<p>Source</p>
+				<div
+					class="flex flex-col items-center justify-center bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-4xl font-bold text-transparent"
+				>
+					<p>🩵</p>
+					<p>Open</p>
+					<p>Source</p>
+				</div>
 			</div>
-			<div class="flex flex-col items-center gap-4">
+			<div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
 				<h3 class="text-2xl font-bold">Free as in freedom.</h3>
-				<p class="max-w-lg text-center text-lg">
+				<p class="max-w-lg text-pretty text-center text-lg">
 					I made this project cause it{"'"}s something I always wanted to have.
-					<b> I had no idea about Swift and macOS APIs</b>, I learned most of it using ChatGPT and
+					<b> I had no idea about Swift or macOS APIs</b>, I learned most of it using ChatGPT and
 					looking at other open source projects.
 				</p>
-				<p class="max-w-lg text-center text-lg text-accent-11 dark:text-accent2-11">
+				<p class="max-w-lg text-pretty text-center text-lg text-accent-11 dark:text-accent2-11">
 					Feel free to checkout the <b>code</b>, open an <b>issue</b>, or contribute with a <b>PR</b
 					>.
 				</p>
@@ -199,5 +205,47 @@ import site from "site"
 		-webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%);
 		mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%);
 		background-size: 24px 24px;
+	}
+	.bg-dots.alt::before {
+		background-image: radial-gradient(var(--accent2-5) 1px, transparent 1px);
+	}
+	.blob {
+		overflow: hidden;
+	}
+	.blob:hover::before,
+	.blob:hover::after {
+		width: 15rem;
+		height: 15rem;
+		filter: blur(80px);
+		transition:
+			width 0.2s,
+			height 0.2s,
+			filter 0.2s;
+	}
+	/* :global(.dark) { */
+	.blob::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		inset-inline-end: 0;
+		width: 6.25rem;
+		height: 6.25rem;
+		background: var(--accent-9);
+		border-radius: 100%;
+		filter: blur(70px);
+		opacity: 0.33;
+	}
+	.blob::after {
+		content: "";
+		position: absolute;
+		bottom: 2rem;
+		left: 2rem;
+		inset-inline-end: 0;
+		width: 100px;
+		height: 100px;
+		background: var(--accent-9);
+		border-radius: 100%;
+		filter: blur(60px);
+		opacity: 0.33;
 	}
 </style>
