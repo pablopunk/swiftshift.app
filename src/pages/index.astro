@@ -212,17 +212,31 @@ import { Image } from "astro:assets"
 	.blob {
 		overflow: hidden;
 	}
-	.blob:hover::before,
-	.blob:hover::after {
-		width: 15rem;
-		height: 15rem;
-		filter: blur(80px);
+
+	.blob::before,
+	.blob::after {
 		transition:
-			width 0.2s,
-			height 0.2s,
-			filter 0.2s;
+			width 0.4s,
+			height 0.4s,
+			filter 0.4s;
 	}
-	/* :global(.dark) { */
+
+	:global(.dark) {
+		.blob:hover::before,
+		.blob:hover::after {
+			width: 15rem;
+			height: 15rem;
+			filter: blur(80px);
+		}
+	}
+
+	:global(.light) {
+		.blob:hover::before,
+		.blob:hover::after {
+			width: 2rem;
+			height: 2rem;
+		}
+	}
 	.blob::before {
 		content: "";
 		position: absolute;
