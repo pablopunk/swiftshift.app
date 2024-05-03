@@ -58,16 +58,6 @@ import { Image } from "astro:assets"
 						href="https://pablopunk.lemonsqueezy.com/checkout/buy/3f0a94d5-c49d-4d40-b847-dae2388f60f4"
 						class="lemonsqueezy-button flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-accent-11 to-accent2-11 px-4 py-2 text-lg font-bold text-neutral-3 shadow-md shadow-accent-5 transition-all hover:scale-105 hover:to-accent-11"
 					>
-						<script>
-							document.querySelectorAll(".lemonsqueezy-button").forEach((button) => {
-								button.addEventListener("click", () => {
-									;(window as any).goatcounter?.count({
-										path: "/buy",
-										// eslint-disable-next-line no-console
-									}) || console.log("goatcounter not found")
-								})
-							})
-						</script>
 						<svg
 							stroke="currentColor"
 							fill="currentColor"
@@ -87,7 +77,7 @@ import { Image } from "astro:assets"
 					</a>
 					<a
 						href="https://github.com/pablopunk/SwiftShift"
-						class="flex cursor-pointer items-center justify-center gap-2 rounded-md border bg-neutral-1 px-4 py-2 text-lg font-bold text-neutral-12 shadow-md transition-all hover:scale-105 hover:border-accent-11 hover:text-accent-11 dark:border-neutral-4 dark:bg-gradient-to-r dark:from-neutral-4 hover:dark:from-neutral-2"
+						class="github-button flex cursor-pointer items-center justify-center gap-2 rounded-md border bg-neutral-1 px-4 py-2 text-lg font-bold text-neutral-12 shadow-md transition-all hover:scale-105 hover:border-accent-11 hover:text-accent-11 dark:border-neutral-4 dark:bg-gradient-to-r dark:from-neutral-4 hover:dark:from-neutral-2"
 					>
 						<svg
 							stroke="currentColor"
@@ -165,7 +155,7 @@ import { Image } from "astro:assets"
 				</p>
 				<a
 					href="https://github.com/pablopunk/SwiftShift"
-					class="flex items-center justify-center gap-2 rounded-md border-2 border-accent-7 bg-gradient-to-r from-accent-11 to-accent2-11 px-4 py-2 text-lg font-bold text-neutral-3 shadow-md shadow-accent-5 transition-all hover:scale-105 hover:to-accent-11 dark:border-accent-12"
+					class="github-button flex items-center justify-center gap-2 rounded-md border-2 border-accent-7 bg-gradient-to-r from-accent-11 to-accent2-11 px-4 py-2 text-lg font-bold text-neutral-3 shadow-md shadow-accent-5 transition-all hover:scale-105 hover:to-accent-11 dark:border-accent-12"
 				>
 					<svg
 						stroke="currentColor"
@@ -187,6 +177,23 @@ import { Image } from "astro:assets"
 		</div>
 	</section>
 </Layout>
+
+<script>
+	document.querySelectorAll(".lemonsqueezy-button").forEach((button) => {
+		button.addEventListener("click", () => {
+			;(window as any).goatcounter?.count({
+				path: "/buy",
+			}) || console.warn("goatcounter not found")
+		})
+	})
+	document.querySelectorAll(".github-button").forEach((button) => {
+		button.addEventListener("click", () => {
+			;(window as any).goatcounter?.count({
+				path: "/github",
+			}) || console.warn("goatcounter not found")
+		})
+	})
+</script>
 
 <style>
 	.bg-dots {
