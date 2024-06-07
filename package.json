@@ -9,11 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check && tsc --noEmit",
-    "lint": "eslint --ext .astro,.ts,.js,.tsx .",
-    "lint:fix": "eslint --ext .astro,.ts,.js,.tsx . --fix",
-    "format": "prettier --write src",
-    "format:check": "prettier --check src",
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "biome check --write src"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -29,19 +26,9 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "0.43",
+    "@biomejs/biome": "1.8.0",
     "@types/node": "^20.12.7",
-    "@typescript-eslint/parser": "^7.7.1",
-    "eslint": "8",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-astro": "^0.34.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-astro-organize-imports": "^0.4.5",
-    "prettier-plugin-tailwindcss": "^0.5.14"
+    "lint-staged": "^15.2.2"
   }
 }

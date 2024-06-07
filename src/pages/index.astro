@@ -1,11 +1,11 @@
 ---
+import { Image } from "astro:assets"
 import HeaderDark from "@/images/header-dark.png"
 import HeaderLight from "@/images/header-light.png"
 import ScreenshotDark from "@/images/screenshot-dark.jpg"
 import ScreenshotLight from "@/images/screenshot-light.jpg"
 import Layout from "@/layouts/Layout.astro"
 import site from "@/site"
-import { Image } from "astro:assets"
 ---
 
 <Layout>
@@ -130,18 +130,36 @@ import { Image } from "astro:assets"
 				))
 			}
 		</div>
-		<div class="bg-dots flex flex-col-reverse items-center justify-between gap-6 py-12 lg:flex-row">
-			<div
-				class="blob relative z-10 flex h-[300px] w-full max-w-lg flex-col items-center justify-center rounded-md bg-accent-1 transition-all lg:w-1/2"
-			>
-				<div
-					class="flex flex-col items-center justify-center bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-4xl font-bold text-transparent"
-				>
-					<p>🩵</p>
-					<p>Open</p>
-					<p>Source</p>
-				</div>
-			</div>
+    <div class="bg-dots flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none">
+      <div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
+			{
+				["light", "dark"].map((theme) => (
+					<video
+						class:list={[
+							"w-full max-w-sm rounded-md transition-all lg:max-w-lg",
+							theme === "light" ? "dark:hidden" : "hidden dark:block",
+						]}
+						autoplay
+						loop
+						muted
+						playsinline
+						preload="metadata"
+						src={`/quadrants-${theme}.mp4`}
+					/>
+				))
+			}
+      </div>
+      <div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
+        <h3 class="text-2xl font-bold">Smart resizing with <span class="bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-transparent">Quadrants</span></h3>
+        <p class="max-w-md text-center text-lg text-pretty">
+        By default, it will resize the window from the bottom-right corner.
+        </p>
+        <p class="max-w-md text-center text-lg text-pretty">
+        But, you can choose to use <b class="text-accent-11">quadrants</b>, which will resize the window from the corner that's closer to your mouse.
+         </p>
+      </div>
+    </div>
+		<div class="bg-dots alt flex flex-col items-center justify-between gap-6 py-12 lg:flex-row">
 			<div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
 				<h3 class="text-2xl font-bold">Free as in freedom.</h3>
 				<p class="max-w-lg text-pretty text-center text-lg">
@@ -173,6 +191,17 @@ import { Image } from "astro:assets"
 					>
 					<span>Open GitHub</span>
 				</a>
+			</div>
+			<div
+				class="blob relative z-10 flex h-[300px] w-full max-w-lg flex-col items-center justify-center rounded-md bg-accent-1 transition-all lg:w-1/2"
+			>
+				<div
+					class="flex flex-col items-center justify-center bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-4xl font-bold text-transparent"
+				>
+					<p>🩵</p>
+					<p>Open</p>
+					<p>Source</p>
+				</div>
 			</div>
 		</div>
 	</section>
