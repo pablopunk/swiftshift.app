@@ -2,6 +2,8 @@
 import { Image } from "astro:assets"
 import HeaderDark from "@/images/header-dark.png"
 import HeaderLight from "@/images/header-light.png"
+import MouseDark from "@/images/mouse-dark.jpg"
+import MouseLight from "@/images/mouse-light.jpg"
 import ScreenshotDark from "@/images/screenshot-dark.jpg"
 import ScreenshotLight from "@/images/screenshot-light.jpg"
 import Layout from "@/layouts/Layout.astro"
@@ -98,8 +100,10 @@ import site from "@/site"
 				</div>
 			</div>
 		</div>
+  </section>
+	<section class="second-section mx-auto flex max-w-screen-lg flex-col">
 		<div
-			class="bg-dots alt flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none"
+			class="bg-dots flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none"
 		>
 			<div class="flex flex-col items-center gap-4">
 				<h3 class="text-2xl font-bold">Launch once and forget.</h3>
@@ -122,9 +126,39 @@ import site from "@/site"
 					<Image
 						src={theme === "light" ? ScreenshotLight : ScreenshotDark}
 						alt="Screenshot"
-						class:list={`max-w-xs rounded-md lg:max-w-lg ${
-							theme === "light" ? "dark:hidden" : "hidden dark:block"
-						}`}
+            class:list={[
+            "max-w-xs rounded-md lg:max-w-lg",
+            {
+              "dark:hidden": theme === "light",
+              "hidden dark:block": theme === "dark",
+            }
+            ]}
+						loading="eager"
+					/>
+				))
+			}
+		</div>
+		<div
+			class="bg-dots flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none"
+		>
+			<div class="flex flex-col items-center gap-4">
+        <h3 class="text-2xl font-bold">Use the <span class="bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-transparent">mouse buttons</span> too</h3>
+				<p class="max-w-md text-center text-lg text-pretty">
+        If you want to match the behavior of some <span class="text-accent2-11 font-bold">Linux</span> distros, you can include the mouse buttons in your shortcuts to move/resize windows.
+				</p>
+			</div>
+			{
+				["light", "dark"].map((theme) => (
+					<Image
+						src={theme === "light" ? MouseLight : MouseDark}
+						alt="Screenshot mouse clicks"
+            class:list={[
+            "max-w-xs rounded-md lg:max-w-lg",
+            {
+              "dark:hidden": theme === "light",
+              "hidden dark:block": theme === "dark",
+            }
+            ]}
 						loading="eager"
 					/>
 				))
@@ -132,12 +166,24 @@ import site from "@/site"
 		</div>
     <div class="bg-dots flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none">
       <div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
+        <h3 class="text-2xl font-bold">Smart resizing with <span class="bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-transparent">Quadrants</span></h3>
+        <p class="max-w-md text-center text-lg text-pretty">
+        By default, it will resize the window from the bottom-right corner.
+        </p>
+        <p class="max-w-md text-center text-lg text-pretty">
+        But, you can choose to use <b class="text-accent-11">quadrants</b>, which will resize the window from the edge/corner that's closer to your mouse. <sup>(<a class="text-accent2-11 hover:text-accent2-12 transition-colors" href="https://github.com/pablopunk/SwiftShift/issues/51">explanation</a>)</sup>
+         </p>
+      </div>
+      <div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
 			{
 				["light", "dark"].map((theme) => (
 					<video
 						class:list={[
 							"w-full max-w-sm rounded-md transition-all lg:max-w-lg",
-							theme === "light" ? "dark:hidden" : "hidden dark:block",
+              {
+                "dark:hidden": theme === "light",
+                "hidden dark:block": theme === "dark",
+              }
 						]}
 						autoplay
 						loop
@@ -149,17 +195,8 @@ import site from "@/site"
 				))
 			}
       </div>
-      <div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
-        <h3 class="text-2xl font-bold">Smart resizing with <span class="bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-transparent">Quadrants</span></h3>
-        <p class="max-w-md text-center text-lg text-pretty">
-        By default, it will resize the window from the bottom-right corner.
-        </p>
-        <p class="max-w-md text-center text-lg text-pretty">
-        But, you can choose to use <b class="text-accent-11">quadrants</b>, which will resize the window from the edge/corner that's closer to your mouse. <sup>(<a class="text-accent2-11 hover:text-accent2-12 transition-colors" href="https://github.com/pablopunk/SwiftShift/issues/51">explanation</a>)</sup>
-         </p>
-      </div>
     </div>
-		<div class="bg-dots alt flex flex-col items-center justify-between gap-6 py-12 lg:flex-row">
+		<div class="bg-dots flex flex-col items-center justify-between gap-6 py-12 lg:flex-row">
 			<div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
 				<h3 class="text-2xl font-bold">Free as in freedom.</h3>
 				<p class="max-w-lg text-pretty text-center text-lg">
@@ -228,6 +265,11 @@ import site from "@/site"
 	.bg-dots {
 		position: relative;
 	}
+  @media (min-width: theme('screens.md')) {
+    .second-section .bg-dots:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
 	.bg-dots::before {
 		z-index: -1;
 		content: "";
@@ -242,7 +284,7 @@ import site from "@/site"
 		mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%);
 		background-size: 24px 24px;
 	}
-	.bg-dots.alt::before {
+  .second-section .bg-dots:nth-child(odd)::before {
 		background-image: radial-gradient(var(--accent2-5) 1px, transparent 1px);
 	}
 	.blob {
