@@ -1,5 +1,9 @@
 ---
 import { Image } from "astro:assets"
+import Feature from "@/components/Feature.astro"
+import FeatureDetails from "@/components/FeatureDetails.astro"
+import FeatureVisual from "@/components/FeatureVisual.astro"
+import GradientText from "@/components/GradientText.astro"
 import HeaderDark from "@/images/header-dark.png"
 import HeaderLight from "@/images/header-light.png"
 import MouseDark from "@/images/mouse-dark.jpg"
@@ -25,34 +29,17 @@ import site from "@/site"
 				))
 			}
 		</div>
-		<div
-			class="bg-dots -mt-10 flex flex-col items-center gap-6 border-b border-neutral-3 py-12 lg:mt-0 lg:flex-row lg:border-none"
-		>
-			{
-				["light", "dark"].map((theme) => (
-					<video
-						class:list={[
-							"w-full max-w-sm rounded-md transition-all lg:max-w-lg",
-							theme === "light" ? "dark:hidden" : "hidden dark:block",
-						]}
-						autoplay
-						loop
-						muted
-						playsinline
-						poster="/placeholder.jpg"
-						preload="metadata"
-						src={`/demo-${theme}.mp4`}
-					/>
-				))
-			}
-			<div class="flex flex-col items-center justify-between gap-4 lg:items-start">
+		<Feature>
+      <FeatureDetails align="left">
 				<h1 class="text-4xl font-bold">Swift Shift</h1>
+        <GradientText>
 				<h2
-					class="bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-center text-2xl font-bold text-transparent"
+					class="text-center text-2xl font-bold"
 				>
 					Manage your macOS windows like a pro
 				</h2>
-				<p class="max-w-lg text-center text-lg lg:text-left">
+        </GradientText>
+				<p class="max-w-lg text-lg lg:text-left">
 					{site.SITE_DESC}
 				</p>
 				<div class="flex flex-col gap-3 lg:flex-row">
@@ -98,113 +85,59 @@ import site from "@/site"
 						<span>Download for free</span>
 					</a>
 				</div>
-			</div>
-		</div>
+      </FeatureDetails>
+      <FeatureVisual type="video" src={["demo-light.mp4", "demo-dark.mp4"]} />
+		</Feature>
   </section>
 	<section class="second-section mx-auto flex max-w-screen-lg flex-col">
-		<div
-			class="bg-dots flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none"
-		>
-			<div class="flex flex-col items-center gap-4">
+    <Feature>
+      <FeatureDetails>
 				<h3 class="text-2xl font-bold">Launch once and forget.</h3>
-				<p class="max-w-sm text-center text-lg">
+				<p class="max-w-sm text-lg">
 					Swift Shift runs in the background, setup your shortcuts and go on with your day.
 				</p>
 				{
 					["Want to launch at login?", "Want to hide the menubar icon?"].map((question) => (
-						<p class="text-md flex max-w-sm gap-1 text-center font-bold">
+						<p class="text-md flex max-w-sm gap-1 font-bold">
 							{question}
-							<span class="bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-transparent">
-								No problem
-							</span>
+							<GradientText>No problem</GradientText>
 						</p>
 					))
 				}
-			</div>
-			{
-				["light", "dark"].map((theme) => (
-					<Image
-						src={theme === "light" ? ScreenshotLight : ScreenshotDark}
-						alt="Screenshot"
-            class:list={[
-            "max-w-xs rounded-md lg:max-w-lg",
-            {
-              "dark:hidden": theme === "light",
-              "hidden dark:block": theme === "dark",
-            }
-            ]}
-						loading="eager"
-					/>
-				))
-			}
-		</div>
-		<div
-			class="bg-dots flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none"
-		>
-			<div class="flex flex-col items-center gap-4">
-        <h3 class="text-2xl font-bold">Use the <span class="bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-transparent">mouse buttons</span> too</h3>
-				<p class="max-w-md text-center text-lg text-pretty">
+			</FeatureDetails>
+      <FeatureVisual type="image" src={[ScreenshotLight, ScreenshotDark]} />
+		</Feature>
+    <Feature>
+			<FeatureDetails>
+        <h3 class="text-2xl font-bold">Use the <GradientText>mouse buttons</GradientText> too</h3>
+				<p class="max-w-md text-lg text-pretty">
         If you want to match the behavior of some <span class="text-accent2-11 font-bold">Linux</span> distros, you can include the mouse buttons in your shortcuts to move/resize windows.
 				</p>
-			</div>
-			{
-				["light", "dark"].map((theme) => (
-					<Image
-						src={theme === "light" ? MouseLight : MouseDark}
-						alt="Screenshot mouse clicks"
-            class:list={[
-            "max-w-xs rounded-md lg:max-w-lg",
-            {
-              "dark:hidden": theme === "light",
-              "hidden dark:block": theme === "dark",
-            }
-            ]}
-						loading="eager"
-					/>
-				))
-			}
-		</div>
-    <div class="bg-dots flex flex-col items-center justify-between gap-6 border-b border-neutral-3 py-12 lg:flex-row lg:border-none">
-      <div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
-        <h3 class="text-2xl font-bold">Smart resizing with <span class="bg-gradient-to-r from-accent-11 to-accent2-11 bg-clip-text text-transparent">Quadrants</span></h3>
-        <p class="max-w-md text-center text-lg text-pretty">
+			</FeatureDetails>
+      <FeatureVisual type="image" src={[MouseLight, MouseDark]} />
+		</Feature>
+    <Feature>
+      <FeatureDetails>
+        <h3 class="text-2xl font-bold">Smart resizing with <GradientText>Quadrants</GradientText></h3>
+        <p class="max-w-md text-lg text-pretty">
         By default, it will resize the window from the bottom-right corner.
         </p>
-        <p class="max-w-md text-center text-lg text-pretty">
+        <p class="max-w-md text-lg text-pretty">
         But, you can choose to use <b class="text-accent-11">quadrants</b>, which will resize the window from the edge/corner that's closer to your mouse. <sup>(<a class="text-accent2-11 hover:text-accent2-12 transition-colors" href="https://github.com/pablopunk/SwiftShift/issues/51">explanation</a>)</sup>
          </p>
+      </FeatureDetails>
+      <FeatureVisual type="video" src={["quadrants-light.mp4", "quadrants-dark.mp4"]} />
       </div>
-      <div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
-			{
-				["light", "dark"].map((theme) => (
-					<video
-						class:list={[
-							"w-full max-w-sm rounded-md transition-all lg:max-w-lg",
-              {
-                "dark:hidden": theme === "light",
-                "hidden dark:block": theme === "dark",
-              }
-						]}
-						autoplay
-						loop
-						muted
-						playsinline
-						preload="metadata"
-						src={`/quadrants-${theme}.mp4`}
-					/>
-				))
-			}
-      </div>
-    </div>
-		<div class="bg-dots flex flex-col items-center justify-between gap-6 py-12 lg:flex-row">
-			<div class="flex w-full flex-col items-center gap-4 lg:w-1/2">
+    </Feature>
+		<Feature>
+			<FeatureDetails>
 				<h3 class="text-2xl font-bold">Free as in freedom.</h3>
-				<p class="max-w-lg text-pretty text-center text-lg">
+				<p class="max-w-lg text-pretty text-lg">
 					I made this project cause it{"'"}s something I always wanted to have.
 					<b> I had no idea about Swift or macOS APIs</b>, I learned most of it using ChatGPT and
 					looking at other open source projects.
 				</p>
-				<p class="max-w-lg text-pretty text-center text-lg text-accent-11 dark:text-accent2-11">
+				<p class="max-w-lg text-pretty text-lg text-accent-11 dark:text-accent2-11">
 					Feel free to checkout the <b>code</b>, open an <b>issue</b>, or contribute with a <b>PR</b
 					>.
 				</p>
@@ -228,7 +161,7 @@ import site from "@/site"
 					>
 					<span>Open GitHub</span>
 				</a>
-			</div>
+      </FeatureDetails>
 			<div
 				class="blob relative z-10 flex h-[300px] w-full max-w-lg flex-col items-center justify-center rounded-md bg-accent-1 transition-all lg:w-1/2"
 			>
@@ -240,7 +173,7 @@ import site from "@/site"
 					<p>Source</p>
 				</div>
 			</div>
-		</div>
+		</Feature>
 	</section>
 </Layout>
 
@@ -262,31 +195,6 @@ import site from "@/site"
 </script>
 
 <style>
-	.bg-dots {
-		position: relative;
-	}
-  @media (min-width: theme('screens.md')) {
-    .second-section .bg-dots:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-  }
-	.bg-dots::before {
-		z-index: -1;
-		content: "";
-		position: absolute;
-		left: 0;
-		inset: 0;
-		height: 100%;
-		width: 100%;
-		background-image: radial-gradient(var(--accent-5) 1px, transparent 1px);
-		background-size: 16px 16px;
-		-webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%);
-		mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%);
-		background-size: 24px 24px;
-	}
-  .second-section .bg-dots:nth-child(odd)::before {
-		background-image: radial-gradient(var(--accent2-5) 1px, transparent 1px);
-	}
 	.blob {
 		overflow: hidden;
 	}
