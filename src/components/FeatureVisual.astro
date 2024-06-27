@@ -1,9 +1,12 @@
 ---
 import { Image } from "astro:assets"
 type ImageType = string | ImageMetadata
-interface Props {
-  type: "video" | "image"
+type Props = {
+  type: "image"
   src: ImageType[]
+} & {
+  type: "video"
+  src: string[]
 }
 
 const { type, src } = Astro.props
