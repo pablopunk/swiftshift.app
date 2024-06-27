@@ -1,13 +1,14 @@
 ---
 import { Image } from "astro:assets"
-type ImageType = string | ImageMetadata
-type Props = {
-  type: "image"
-  src: ImageType[]
-} & {
-  type: "video"
-  src: string[]
-}
+type Props =
+  | {
+      type: "image"
+      src: ImageMetadata[]
+    }
+  | {
+      type: "video"
+      src: string[]
+    }
 
 const { type, src } = Astro.props
 ---
@@ -34,14 +35,14 @@ const { type, src } = Astro.props
     ):
     ["light", "dark"].map((theme) => (
       <Image
-        src={theme === "light" ? src[0] : src[1] ?? src[0]}
+        src={theme === "light" ? src[0] : src[1] ?? src[0] ?? src[0]}
         alt="Screenshot"
         class:list={[
-        "max-w-xs rounded-md lg:max-w-lg",
-        {
-          "dark:hidden": theme === "light",
-          "hidden dark:block": theme === "dark",
-        }
+          "max-w-xs rounded-md lg:max-w-lg",
+          {
+            "dark:hidden": theme === "light",
+            "hidden dark:block": theme === "dark",
+          }
         ]}
         loading="eager"
       />
