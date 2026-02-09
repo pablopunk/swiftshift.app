@@ -1,0 +1,146 @@
+---
+import { quotes } from "../data/quotes"
+import QuoteCard from "./QuoteCard.astro"
+
+// Separate featured quote from the rest
+const featuredQuote = quotes.find((q) => q.featured)
+const otherQuotes = quotes.filter((q) => !q.featured)
+---
+
+<section
+  class="relative w-full overflow-hidden bg-white py-16 md:py-24 dark:bg-slate-950"
+>
+  {/* Background decoration */}
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-b from-slate-50 to-transparent dark:from-slate-900 dark:to-transparent"
+  >
+  </div>
+
+  <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+    {/* Section heading */}
+    <div class="mb-16 text-center md:mb-20">
+      <h2
+        class="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-4xl font-bold text-transparent dark:from-slate-100 dark:to-slate-300 md:text-5xl"
+      >
+        What the Community Thinks
+        <span class="block text-2xl md:text-3xl">of Swift Shift ✨</span>
+      </h2>
+      <p class="mt-4 text-slate-600 dark:text-slate-400">
+        Real feedback from real users who love the app
+      </p>
+    </div>
+
+    {/* Featured quote */}
+    {
+      featuredQuote && (
+        <div class="mb-12 md:mb-20">
+          <QuoteCard quote={featuredQuote} />
+        </div>
+      )
+    }
+
+    {/* Grid of other quotes */}
+    <div class="community-quotes-grid">
+      {otherQuotes.map((quote, index) => (
+        <div class="quote-item" style={`--delay: ${index * 0.1}s`}>
+          <QuoteCard quote={quote} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .community-quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    animation: fadeIn 0.8s ease-out;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+
+      /* Create asymmetrical layout */
+      .quote-item:nth-child(1) {
+        grid-column: span 1;
+      }
+
+      .quote-item:nth-child(2) {
+        grid-column: span 1;
+      }
+
+      .quote-item:nth-child(3) {
+        grid-column: span 1;
+      }
+
+      .quote-item:nth-child(4) {
+        grid-column: span 2;
+      }
+
+      .quote-item:nth-child(5) {
+        grid-column: span 2;
+      }
+
+      .quote-item:nth-child(6) {
+        grid-column: span 1;
+      }
+
+      .quote-item:nth-child(7) {
+        grid-column: span 1;
+      }
+
+      .quote-item:nth-child(8) {
+        grid-column: span 1;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      grid-template-columns: repeat(2, 1fr);
+
+      .quote-item:nth-child(4) {
+        grid-column: span 2;
+      }
+
+      .quote-item:nth-child(5) {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+
+      .quote-item:nth-child(4) {
+        grid-column: span 1;
+      }
+
+      .quote-item:nth-child(5) {
+        grid-column: span 1;
+      }
+    }
+  }
+
+  .quote-item {
+    animation: slideInStaggered 0.6s ease-out both;
+    animation-delay: var(--delay, 0s);
+  }
+
+  @keyframes slideInStaggered {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
