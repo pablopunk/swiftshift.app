@@ -7,11 +7,17 @@ interface Props {
 
 const { quote } = Astro.props
 
-const platformIcons: Record<string, string> = {
-  reddit: "🔴",
-  lifehacker: "⚡",
-  appaddict: "📱",
+// Extract domain from URL for favicon
+function getDomain(url: string): string {
+  try {
+    return new URL(url).hostname.replace("www.", "")
+  } catch {
+    return "reddit.com"
+  }
 }
+
+const domain = getDomain(quote.url)
+const faviconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=32`
 ---
 
 <div class="flex flex-col items-center gap-8 py-8 text-center lg:py-12">
@@ -25,10 +31,17 @@ const platformIcons: Record<string, string> = {
     {quote.text}
   </blockquote>
 
-  {/* Attribution */}
+  {/* Attribution with favicon */}
   <div class="flex flex-col items-center gap-2">
     <div class="flex items-center gap-2 text-neutral-11">
-      <span class="text-lg">{platformIcons[quote.platform]}</span>
+      <img
+        src={faviconUrl}
+        alt=""
+        class="h-4 w-4 opacity-80"
+        width="16"
+        height="16"
+        loading="lazy"
+      />
       <span class="font-semibold">{quote.attribution}</span>
     </div>
     <a
