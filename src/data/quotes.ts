@@ -4,9 +4,6 @@ export interface Quote {
   attribution: string
   platform: "reddit" | "lifehacker" | "appaddict"
   url: string
-  variant: 1 | 2 | 3 | 4
-  featured: boolean
-  accentColor: "blue" | "pink" | "purple"
 }
 
 export const quotes: Quote[] = [
@@ -16,9 +13,6 @@ export const quotes: Quote[] = [
     attribution: "Community Member",
     platform: "reddit",
     url: "https://reddit.com/r/macapps/comments/1eiyz37/",
-    variant: 1,
-    featured: true,
-    accentColor: "blue",
   },
   {
     id: "quote-2",
@@ -26,9 +20,6 @@ export const quotes: Quote[] = [
     attribution: "Jaiden97",
     platform: "reddit",
     url: "https://reddit.com/r/MacOS/comments/18ujz24/",
-    variant: 2,
-    featured: false,
-    accentColor: "pink",
   },
   {
     id: "quote-3",
@@ -36,9 +27,6 @@ export const quotes: Quote[] = [
     attribution: "Community User",
     platform: "reddit",
     url: "https://reddit.com/r/MacOS/comments/18ujz24/",
-    variant: 3,
-    featured: false,
-    accentColor: "blue",
   },
   {
     id: "quote-4",
@@ -46,9 +34,6 @@ export const quotes: Quote[] = [
     attribution: "Dedicated User",
     platform: "reddit",
     url: "https://reddit.com/r/MacOS/comments/18ujz24/",
-    variant: 4,
-    featured: false,
-    accentColor: "purple",
   },
   {
     id: "quote-5",
@@ -56,9 +41,6 @@ export const quotes: Quote[] = [
     attribution: "blissed_off",
     platform: "reddit",
     url: "https://reddit.com/r/MacOS/comments/18ujz24/",
-    variant: 2,
-    featured: false,
-    accentColor: "pink",
   },
   {
     id: "quote-6",
@@ -66,9 +48,6 @@ export const quotes: Quote[] = [
     attribution: "Power User",
     platform: "reddit",
     url: "https://reddit.com/r/macapps/comments/1eiyz37/",
-    variant: 3,
-    featured: false,
-    accentColor: "blue",
   },
   {
     id: "quote-7",
@@ -76,9 +55,6 @@ export const quotes: Quote[] = [
     attribution: "scottlewis101",
     platform: "reddit",
     url: "https://reddit.com/r/MacOS/comments/18ujz24/",
-    variant: 2,
-    featured: false,
-    accentColor: "purple",
   },
   {
     id: "quote-8",
@@ -86,8 +62,5 @@ export const quotes: Quote[] = [
     attribution: "LifeHacker Review",
     platform: "lifehacker",
     url: "https://lifehacker.com/tech/swift-shift-is-the-window-management-tool-apple-should-have-built",
-    variant: 4,
-    featured: false,
-    accentColor: "pink",
   },
 ]
