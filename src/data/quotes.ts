@@ -8,6 +8,13 @@ export interface Quote {
 
 export const quotes: Quote[] = [
   {
+    id: "quote-8",
+    text: "The window management tool Apple should have built",
+    attribution: "LifeHacker Review",
+    platform: "lifehacker",
+    url: "https://lifehacker.com/tech/swift-shift-is-the-window-management-tool-apple-should-have-built",
+  },
+  {
     id: "quote-1",
     text: "Simplicity. Freedom. What else? Genius.",
     attribution: "Community Member",
@@ -55,12 +62,5 @@ export const quotes: Quote[] = [
     attribution: "scottlewis101",
     platform: "reddit",
     url: "https://reddit.com/r/MacOS/comments/18ujz24/",
-  },
-  {
-    id: "quote-8",
-    text: "The window management tool Apple should have built",
-    attribution: "LifeHacker Review",
-    platform: "lifehacker",
-    url: "https://lifehacker.com/tech/swift-shift-is-the-window-management-tool-apple-should-have-built",
   },
 ]
