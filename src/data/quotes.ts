@@ -2,11 +2,25 @@ export interface Quote {
   id: string
   text: string
   attribution: string
-  platform: "reddit" | "lifehacker" | "appaddict"
+  platform: "reddit" | "lifehacker" | "twitter" | "appaddict"
   url: string
 }
 
 export const quotes: Quote[] = [
+  {
+    id: "quote-twitter-1",
+    text: "When it comes to resizing and moving app windows, macOS still has a long way to go. #SwiftShift offers a buttery-smooth respite to those woes for free.",
+    attribution: "Digital Trends",
+    platform: "twitter",
+    url: "https://x.com/DigitalTrends/status/1918874864234250242",
+  },
+  {
+    id: "quote-twitter-2",
+    text: "Just started using SwiftShift...What a FANTASTIC job you did with this app. Such a simple but powerful app and executed perfectly. Thank you! ;-)",
+    attribution: "Dean",
+    platform: "twitter",
+    url: "https://x.com/deanfx/status/1926472726597804362",
+  },
   {
     id: "quote-8",
     text: "The window management tool Apple should have built",
