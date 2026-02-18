@@ -31,7 +31,7 @@ export const quotes: Quote[] = [
   {
     id: "quote-1",
     text: "Simplicity. Freedom. What else? Genius.",
-    attribution: "Community Member",
+    attribution: "Reddit User",
     platform: "reddit",
     url: "https://reddit.com/r/macapps/comments/1eiyz37/",
   },
@@ -45,14 +45,14 @@ export const quotes: Quote[] = [
   {
     id: "quote-3",
     text: "This utility is awesome. Will likely save me a lot of time!",
-    attribution: "Community User",
+    attribution: "Reddit User",
     platform: "reddit",
     url: "https://reddit.com/r/MacOS/comments/18ujz24/",
   },
   {
     id: "quote-4",
     text: "I would definitely pay a few bucks to support development. It's one of those 'install and forget it's not part of the OS' apps—when I get on a machine without it, I miss it.",
-    attribution: "Dedicated User",
+    attribution: "Reddit User",
     platform: "reddit",
     url: "https://reddit.com/r/MacOS/comments/18ujz24/",
   },
@@ -66,7 +66,7 @@ export const quotes: Quote[] = [
   {
     id: "quote-6",
     text: "SwiftShift moves and resizes windows way smoother than other tools",
-    attribution: "Power User",
+    attribution: "Reddit User",
     platform: "reddit",
     url: "https://reddit.com/r/macapps/comments/1eiyz37/",
   },
