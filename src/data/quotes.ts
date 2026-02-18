@@ -8,6 +8,13 @@ export interface Quote {
 
 export const quotes: Quote[] = [
   {
+    id: "quote-8",
+    text: "The window management tool Apple should have built",
+    attribution: "LifeHacker Review",
+    platform: "lifehacker",
+    url: "https://lifehacker.com/tech/swift-shift-is-the-window-management-tool-apple-should-have-built",
+  },
+  {
     id: "quote-twitter-1",
     text: "When it comes to resizing and moving app windows, macOS still has a long way to go. #SwiftShift offers a buttery-smooth respite to those woes for free.",
     attribution: "Digital Trends",
@@ -20,13 +27,6 @@ export const quotes: Quote[] = [
     attribution: "Dean",
     platform: "twitter",
     url: "https://x.com/deanfx/status/1926472726597804362",
-  },
-  {
-    id: "quote-8",
-    text: "The window management tool Apple should have built",
-    attribution: "LifeHacker Review",
-    platform: "lifehacker",
-    url: "https://lifehacker.com/tech/swift-shift-is-the-window-management-tool-apple-should-have-built",
   },
   {
     id: "quote-1",
